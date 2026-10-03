@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Dev | Início</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-icon">▤</span><span><b>Biblioteca Dev</b><small>Livros que constroem seu futuro</small></span></a>
+    <nav><a class="active" href="index.html">Início</a><a href="#acervo">Acervo</a><a href="perfil.html">Meu perfil</a><a class="nav-button" href="login.html">Entrar</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">BIBLIOTECA DIGITAL DE TECNOLOGIA</span>
+        <h1>Conhecimento para<br><span>o próximo nível.</span></h1>
+        <p>Encontre livros de programação, redes, banco de dados e muito mais.</p>
+        <a class="button" href="#acervo">Explorar acervo</a>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="book book-one">HTML<br><small>e CSS</small></div><div class="book book-two">PYTHON</div><div class="book book-three">SQL</div></div>
+    </section>
+
+    <section class="section" id="acervo">
+      <div class="section-heading"><div><span class="eyebrow">NOSSO ACERVO</span><h2>Encontre sua próxima leitura</h2></div><span class="muted" id="book-count">6 livros</span></div>
+      <div class="search-row"><input id="search" type="search" placeholder="Buscar por título, autor ou assunto..." aria-label="Buscar livros"><select id="category" aria-label="Filtrar categoria"><option value="todos">Todas as categorias</option><option>Programação</option><option>Banco de Dados</option><option>Redes</option><option>Sistemas</option><option>Segurança</option></select></div>
+      <div class="book-grid" id="book-grid"></div>
+    </section>
+  </main>
+  <footer>Biblioteca Dev · Projeto acadêmico de biblioteca digital</footer>
+  <script src="script.js"></script>
+</body>
+</html>
