@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Dev | Administração</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="admin">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-icon">▤</span><span><b>Biblioteca Dev</b><small>Livros que constroem seu futuro</small></span></a>
+    <nav id="main-nav"></nav>
+  </header>
+  <main class="profile-main admin-main">
+    <section class="admin-head">
+      <span class="eyebrow">ÁREA RESTRITA</span>
+      <h1>Painel administrativo</h1>
+      <p class="muted">Gerencie o acervo, acompanhe os aluguéis e registre devoluções.</p>
+    </section>
+    <div class="profile-tabs">
+      <button class="profile-tab active" data-tab="painel" type="button">Painel</button>
+      <button class="profile-tab" data-tab="livros" type="button">Livros</button>
+      <button class="profile-tab" data-tab="pdfs" type="button">PDFs</button>
+      <button class="profile-tab" data-tab="alugueis" type="button">Aluguéis</button>
+      <button class="profile-tab" data-tab="usuarios" type="button">Usuários</button>
+    </div>
+    <div id="admin-panel" class="admin-panel"></div>
+  </main>
+  <footer>Biblioteca Dev · Projeto acadêmico de biblioteca digital</footer>
+  <script src="db.js"></script>
+  <script src="script.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

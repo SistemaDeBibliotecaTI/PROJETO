@@ -1,0 +1,10 @@
+{
+  "name": "biblioteca-dev",
+  "version": "4.0.0",
+  "private": true,
+  "description": "Biblioteca Dev - sistema acadêmico com persistência SQLite e PDFs no servidor",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
+  "engines": { "node": ">=20" },
+  "dependencies": { "better-sqlite3": "^11.8.1", "express": "^4.21.2", "multer": "^1.4.5-lts.2" }
+}

@@ -6,34 +6,36 @@
   <title>Biblioteca Dev | Acesso</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="auth-page">
+<body class="auth-page auth-scene" data-page="login">
   <header class="topbar">
     <a class="brand" href="index.html"><span class="brand-icon">▤</span><span><b>Biblioteca Dev</b><small>Livros que constroem seu futuro</small></span></a>
-    <nav><a href="index.html">Início</a><a href="index.html#acervo">Acervo</a><a href="perfil.html">Meu perfil</a></nav>
+    <nav id="main-nav"></nav>
   </header>
   <main class="auth-wrap">
     <section class="auth-card">
-      <div class="auth-brand"><span class="brand-icon">▤</span><h1>Biblioteca Dev</h1><p>Acesse sua área de leitura</p></div>
-      <div class="tabs"><button class="tab active" data-tab="login">Entrar</button><button class="tab" data-tab="register">Criar conta</button></div>
+      <div class="auth-brand"><span class="scene-kicker">✦ BIBLIOTECA + LABORATÓRIO DE TECNOLOGIA</span><span class="brand-icon">▤</span><h1>Biblioteca Dev</h1><p>Acesse sua área de leitura</p></div>
+      <div class="tabs"><button class="tab active" data-tab="login" type="button">Entrar</button><button class="tab" data-tab="register" type="button">Criar conta</button></div>
       <form id="login-form">
-        <label for="login-user">E-mail ou nome de usuário</label><input id="login-user" required placeholder="seu@email.com ou usuário">
-        <label for="login-password">Senha</label><input id="login-password" type="password" required placeholder="Digite sua senha">
-        <div class="form-line"><label class="check"><input type="checkbox"> Lembrar-me</label><a href="#" id="forgot">Esqueci minha senha</a></div>
+        <label for="login-user">E-mail ou nome de usuário</label><input id="login-user" required autocomplete="username" placeholder="seu@email.com ou usuário">
+        <label for="login-password">Senha</label><input id="login-password" type="password" required autocomplete="current-password" placeholder="Digite sua senha">
+        <div class="form-line"><label class="check"><input type="checkbox" id="remember"> Lembrar-me</label><a href="#" id="forgot">Esqueci minha senha</a></div>
+        <p class="form-error" id="login-error" role="alert"></p>
         <button class="button full" type="submit">Entrar</button>
       </form>
       <form id="register-form" class="hidden">
-        <label for="new-name">Nome de usuário</label><input id="new-name" required placeholder="Como deseja ser chamado?">
-        <label for="new-email">E-mail</label><input id="new-email" type="email" required placeholder="seu@email.com">
-        <label for="new-password">Criar senha</label><input id="new-password" type="password" required minlength="6" placeholder="Mínimo de 6 caracteres">
+        <label for="new-name">Nome de usuário</label><input id="new-name" required maxlength="20" autocomplete="username" placeholder="Como deseja ser chamado?">
+        <label for="new-email">E-mail</label><input id="new-email" type="email" required autocomplete="email" placeholder="seu@email.com">
+        <label for="new-password">Criar senha</label><input id="new-password" type="password" required minlength="6" autocomplete="new-password" placeholder="Mínimo de 6 caracteres">
+        <label for="new-password2">Confirmar senha</label><input id="new-password2" type="password" required minlength="6" autocomplete="new-password" placeholder="Repita a senha">
+        <p class="form-error" id="register-error" role="alert"></p>
         <button class="button full" type="submit">Criar minha conta</button>
       </form>
-      <div class="divider"><span>ou</span></div>
-      <a class="button button-outline full" href="perfil.html">Acesso de demonstração do leitor</a>
-      <button class="admin-link" id="admin-access" type="button">Acesso do administrador</button>
-      <p class="notice">O acesso administrativo será conectado ao sistema de permissões do projeto.</p>
+      <p class="notice">Acesso exclusivo para estudantes. Administradores devem utilizar a entrada própria.</p>
+      <a class="back-link" href="admin-login.html">Acesso administrativo</a>
       <a class="back-link" href="index.html">← Voltar para o acervo</a>
     </section>
   </main>
+  <script src="db.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

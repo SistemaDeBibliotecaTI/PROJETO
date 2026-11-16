@@ -6,42 +6,37 @@
   <title>Biblioteca Dev | Meu perfil</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="perfil">
   <header class="topbar">
     <a class="brand" href="index.html"><span class="brand-icon">▤</span><span><b>Biblioteca Dev</b><small>Livros que constroem seu futuro</small></span></a>
-    <nav><a href="index.html">Início</a><a href="index.html#acervo">Acervo</a><a class="active" href="perfil.html">Meu perfil</a><a class="nav-button" href="login.html">Sair</a></nav>
+    <nav id="main-nav"></nav>
   </header>
   <main class="profile-main">
     <section class="profile-card">
       <div class="avatar" id="avatar">L</div>
-      <div class="profile-info"><span class="eyebrow">PERFIL DO LEITOR</span><h1 id="profile-name">leitor.dev</h1><p id="profile-description">Apaixonado por tecnologia, jogos e boas histórias. Sempre em busca de aprender algo novo.</p><button class="text-button" id="edit-profile">✎ Editar perfil</button></div>
-      <div class="level-box"><span class="level-icon">★</span><div><b id="level-name">Leitor iniciante</b><div class="progress"><span id="progress-bar"></span></div><small><span id="points">120</span> / 300 pontos para o próximo nível</small></div></div>
+      <div class="profile-info"><span class="eyebrow">PERFIL DO LEITOR</span><h1 id="profile-name"></h1><p id="profile-description"></p><button class="text-button" id="edit-profile" type="button">✎ Editar perfil</button></div>
+      <div class="level-box"><span class="level-icon">★</span><div><b id="level-name"></b><div class="progress"><span id="progress-bar"></span></div><small id="level-note"></small></div></div>
     </section>
 
     <section class="stats-grid">
-      <article class="stat"><span>📚</span><div><small>Livros lidos</small><b>12</b></div></article>
-      <article class="stat"><span>◷</span><div><small>Em empréstimo</small><b>2</b></div></article>
-      <article class="stat"><span>☆</span><div><small>Nível</small><b id="level-stat">Iniciante</b></div></article>
+      <article class="stat"><span>📚</span><div><small>Livros lidos</small><b id="stat-read">0</b></div></article>
+      <article class="stat"><span>◷</span><div><small>Em empréstimo</small><b id="stat-active">0</b></div></article>
+      <article class="stat"><span>☆</span><div><small>Nível</small><b id="level-stat"></b></div></article>
     </section>
 
-    <div class="profile-tabs"><button class="profile-tab active" data-panel="borrowed">Em empréstimo</button><button class="profile-tab" data-panel="history">Histórico</button></div>
+    <div class="profile-tabs"><button class="profile-tab active" data-panel="borrowed" type="button">Meus livros</button><button class="profile-tab" data-panel="history" type="button">Histórico</button></div>
     <section id="borrowed-panel" class="profile-panel">
-      <h2>Livros em empréstimo</h2>
-      <div class="loan-list">
-        <article class="loan"><div class="mini-cover cover-blue">CLEAN<br>CODE</div><div class="loan-details"><b>Clean Code</b><small>Robert C. Martin</small><small>▣ Devolução: 15/10/2026</small></div><span class="status">Em dia</span></article>
-        <article class="loan"><div class="mini-cover cover-python">PYTHON</div><div class="loan-details"><b>Python — Do Básico ao Avançado</b><small>Guido van Rossum</small><small>▣ Devolução: 20/10/2026</small></div><span class="status">Em dia</span></article>
-      </div>
+      <h2>Meus livros</h2>
+      <div class="loan-list" id="borrowed-list"></div>
+      <p class="muted panel-note">O prazo de cada aluguel é de 1 semana. A devolução é registrada pelo administrador da biblioteca.</p>
     </section>
     <section id="history-panel" class="profile-panel hidden">
       <h2>Histórico de leituras</h2>
-      <div class="loan-list">
-        <article class="loan"><div class="mini-cover cover-network">REDES</div><div class="loan-details"><b>Redes de Computadores</b><small>Andrew S. Tanenbaum</small><small>Devolvido em: 05/09/2026</small></div><span class="status done">Concluído</span></article>
-        <article class="loan"><div class="mini-cover cover-sql">SQL</div><div class="loan-details"><b>Banco de Dados SQL</b><small>Elmasri & Navathe</small><small>Devolvido em: 23/08/2026</small></div><span class="status done">Concluído</span></article>
-        <article class="loan"><div class="mini-cover cover-sec">SEGURANÇA</div><div class="loan-details"><b>Segurança em Redes</b><small>William Stallings</small><small>Devolvido em: 12/07/2026</small></div><span class="status done">Concluído</span></article>
-      </div>
+      <div class="loan-list" id="history-list"></div>
     </section>
   </main>
   <footer>Biblioteca Dev · Projeto acadêmico de biblioteca digital</footer>
+  <script src="db.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

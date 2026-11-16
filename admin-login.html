@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Dev | Acesso administrativo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page auth-scene" data-page="admin-login">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-icon">▤</span><span><b>Biblioteca Dev</b><small>Livros que constroem seu futuro</small></span></a>
+    <nav id="main-nav"></nav>
+  </header>
+  <main class="auth-wrap">
+    <section class="auth-card">
+      <div class="auth-brand"><span class="scene-kicker">✦ CENTRAL DE GESTÃO DA BIBLIOTECA</span><span class="brand-icon">▤</span><h1>Área administrativa</h1><p>Acesso restrito à equipe da biblioteca</p></div>
+      <form id="admin-login-form">
+        <label for="admin-user">Usuário administrativo</label><input id="admin-user" required autocomplete="username" placeholder="adm001">
+        <label for="admin-password">Senha</label><input id="admin-password" type="password" required autocomplete="current-password" placeholder="Senha administrativa">
+        <div class="form-line"><label class="check"><input type="checkbox" id="admin-remember"> Lembrar-me</label></div>
+        <p class="form-error" id="admin-login-error" role="alert"></p>
+        <button class="button full" type="submit">Entrar no painel</button>
+      </form>
+      <p class="notice">Esta página aceita somente uma conta com permissão de administrador.</p>
+      <a class="back-link" href="login.html">← Voltar ao login dos estudantes</a>
+    </section>
+  </main>
+  <script src="db.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

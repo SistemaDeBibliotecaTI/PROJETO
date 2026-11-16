@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Dev | Leitor PDF</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="pdf-reader">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-icon">▤</span><span><b>Biblioteca Dev</b><small>Livros que constroem seu futuro</small></span></a>
+    <nav id="main-nav"></nav>
+  </header>
+  <main class="pdf-reader-main">
+    <div class="pdf-reader-head"><div><span class="eyebrow">ÁREA DE LEITURA</span><h1 id="pdf-title">Carregando livro...</h1></div><a class="button button-outline" href="perfil.html">Voltar para meus livros</a></div>
+    <p id="pdf-message" class="form-error" role="alert"></p>
+    <iframe id="pdf-viewer" class="pdf-viewer" title="Leitor de PDF"></iframe>
+  </main>
+  <footer>Biblioteca Dev · Leitura disponível durante o período do empréstimo</footer>
+  <script src="db.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs>
+ <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#18244d"/><stop offset="1" stop-color="#111a38"/></linearGradient>
+ <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#26345d"/><stop offset="1" stop-color="#10172e"/></linearGradient>
+ <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#172b59"/><stop offset="1" stop-color="#10172e"/></linearGradient>
+ <linearGradient id="desk" x2="0" y2="1"><stop stop-color="#bd805e"/><stop offset="1" stop-color="#71435b"/></linearGradient>
+ <linearGradient id="screen" x2="1" y2="1"><stop stop-color="#3c63c9"/><stop offset="1" stop-color="#713cc1"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+ <filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
+</defs>
+<rect width="1920" height="1080" fill="url(#wall)"/>
+<rect y="730" width="1920" height="350" fill="url(#floor)"/>
+<!-- windows and ambient light -->
+<rect x="1080" y="90" width="760" height="560" rx="18" fill="url(#glass)" stroke="#5364a8" stroke-width="8"/>
+<g opacity=".45" stroke="#7d9cff" stroke-width="5"><path d="M1270 95V645M1460 95V645M1650 95V645M1085 280H1835M1085 465H1835"/></g>
+<circle cx="1480" cy="280" r="230" fill="#4168ff" opacity=".18" filter="url(#glow)"/>
+<path d="M1085 590 Q1330 390 1580 570 T1835 520V645H1085Z" fill="#263d75" opacity=".65"/>
+<!-- ceiling lights -->
+<g opacity=".9"><path d="M170 55H700" stroke="#ffb9dd" stroke-width="13" stroke-linecap="round"/><path d="M870 55H1280" stroke="#b7c8ff" stroke-width="13" stroke-linecap="round"/><path d="M1430 55H1780" stroke="#7fe7ff" stroke-width="13" stroke-linecap="round"/></g>
+<!-- bookshelves -->
+<g>
+ <rect x="0" y="105" width="520" height="690" fill="#302447" stroke="#a36a9b" stroke-width="10"/>
+ <g stroke="#b67c9d" stroke-width="15"><path d="M0 300H520M0 500H520M0 700H520"/></g>
+ <g>
+  <rect x="24" y="135" width="42" height="150" rx="5" fill="#f0a65d"/><rect x="73" y="120" width="34" height="165" rx="5" fill="#6ec7c5"/><rect x="115" y="145" width="54" height="140" rx="5" fill="#8874d8"/><rect x="178" y="128" width="38" height="157" rx="5" fill="#e26f91"/><rect x="225" y="155" width="48" height="130" rx="5" fill="#4b91bf"/><rect x="282" y="132" width="37" height="153" rx="5" fill="#e6c16e"/><rect x="329" y="145" width="52" height="140" rx="5" fill="#5aa98e"/><rect x="390" y="122" width="42" height="163" rx="5" fill="#d47d9d"/><rect x="440" y="148" width="54" height="137" rx="5" fill="#6788d6"/>
+  <rect x="20" y="325" width="52" height="160" rx="5" fill="#6788d6"/><rect x="80" y="340" width="40" height="145" rx="5" fill="#e5a65e"/><rect x="130" y="315" width="57" height="170" rx="5" fill="#55b6a3"/><rect x="198" y="330" width="36" height="155" rx="5" fill="#d76c8b"/><rect x="245" y="350" width="51" height="135" rx="5" fill="#8b78d7"/><rect x="306" y="320" width="43" height="165" rx="5" fill="#e6c16e"/><rect x="360" y="340" width="60" height="145" rx="5" fill="#5295bf"/><rect x="430" y="318" width="62" height="167" rx="5" fill="#d67d9e"/>
+  <rect x="22" y="525" width="38" height="160" rx="5" fill="#e6c16e"/><rect x="69" y="540" width="56" height="145" rx="5" fill="#8874d8"/><rect x="135" y="520" width="42" height="165" rx="5" fill="#5bb69d"/><rect x="188" y="548" width="58" height="137" rx="5" fill="#e37d8f"/><rect x="257" y="525" width="39" height="160" rx="5" fill="#6ba6d0"/><rect x="306" y="540" width="58" height="145" rx="5" fill="#e6a65e"/><rect x="374" y="518" width="42" height="167" rx="5" fill="#8c79d7"/><rect x="427" y="540" width="68" height="145" rx="5" fill="#59b5a2"/>
+ </g>
+</g>
+<!-- computer lab desks -->
+<g>
+ <path d="M980 760H1900L1920 850H920Z" fill="url(#desk)"/>
+ <path d="M1020 850H1880L1840 1080H1080Z" fill="#332d50"/>
+ <g transform="translate(1080 410)">
+  <rect width="270" height="185" rx="13" fill="#151b36" stroke="#9b8ce8" stroke-width="9"/><rect x="15" y="15" width="240" height="145" rx="5" fill="url(#screen)"/><path d="M135 185V225M80 225H190" stroke="#a6a5d9" stroke-width="12" stroke-linecap="round"/>
+ </g>
+ <g transform="translate(1410 380)">
+  <rect width="300" height="205" rx="13" fill="#151b36" stroke="#69cce4" stroke-width="9"/><rect x="16" y="16" width="268" height="164" rx="5" fill="url(#screen)"/><path d="M150 205V245M90 245H210" stroke="#a6a5d9" stroke-width="12" stroke-linecap="round"/>
+ </g>
+ <g transform="translate(1180 700)"><path d="M0 0H240L220 24H20Z" fill="#202947"/><rect x="20" y="25" width="200" height="12" rx="6" fill="#8d80d8"/><rect x="75" y="42" width="90" height="9" rx="4" fill="#b7c8ff"/></g>
+ <g transform="translate(1510 690)"><path d="M0 0H250L230 24H20Z" fill="#202947"/><rect x="20" y="25" width="210" height="12" rx="6" fill="#8d80d8"/><rect x="85" y="42" width="90" height="9" rx="4" fill="#b7c8ff"/></g>
+</g>
+<!-- warm reading desk foreground -->
+<path d="M0 830H720L820 1080H0Z" fill="url(#desk)"/>
+<path d="M70 840H650" stroke="#f6c39c" stroke-width="8" opacity=".5"/>
+<g transform="translate(120 720)"><rect width="110" height="22" rx="5" fill="#e5a45f"/><rect x="10" y="-32" width="92" height="32" rx="5" fill="#6d73c7"/><rect x="20" y="-60" width="76" height="28" rx="5" fill="#57a99e"/></g>
+<!-- plants -->
+<g transform="translate(570 600)" fill="#47b69b"><path d="M0 140Q-90 30 -25 0Q30 30 0 140M10 140Q70 10 110 55Q95 110 10 140M0 140Q-5 20 35 12Q65 85 0 140"/></g>
+<rect x="560" y="740" width="90" height="75" rx="12" fill="#e08e9d"/>
+<!-- center soft vignette keeps login readable -->
+<rect width="1920" height="1080" fill="#10152e" opacity=".25"/>
+<ellipse cx="960" cy="520" rx="510" ry="460" fill="#131a39" opacity=".35" filter="url(#soft)"/>
+</svg>
