@@ -1,6 +1,6 @@
 # Bibliotech
 
-Sistema acadêmico de biblioteca de TI, com interface da versão colorida v3.1 preservada e camada de persistência local em SQLite.
+Sistema acadêmico de biblioteca, com interface da versão colorida reservada e camada de persistência local em SQLite.
 
 ## Requisitos
 - Node.js 20 ou superior (recomendado Node.js 22 LTS)
