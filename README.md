@@ -1,4 +1,4 @@
-# Biblioteca Dev 4.0
+# Bibliotech
 
 Sistema acadêmico de biblioteca de TI, com interface da versão colorida v3.1 preservada e camada de persistência local em SQLite.
 
@@ -7,7 +7,7 @@ Sistema acadêmico de biblioteca de TI, com interface da versão colorida v3.1 p
 - VS Code
 
 ## Instalação e execução
-1. Extraia o ZIP e abra a pasta `Sistema de Biblioteca v2` no VS Code.
+1. Extraia o ZIP e abra a pasta `BiblioTech` no VS Code.
 2. Abra **Terminal > Novo Terminal**.
 3. Execute `npm install`.
 4. Depois execute `npm start`.
