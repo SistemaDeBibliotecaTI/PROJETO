@@ -90,8 +90,17 @@
     const user = DB.currentUser();
     const link = (href, label, active) => '<a href="' + href + '"' + (active ? ' class="active"' : '') + '>' + label + '</a>';
     let html = link('index.html', 'Início', page === 'home') + link('index.html#acervo', 'Acervo', false);
-    if (user && user.role === 'leitor') html += link('perfil.html', 'Meu perfil', page === 'perfil');
-    if (user && user.role === 'admin') html += link('admin.html', 'Administração', page === 'admin');
+    if (user && user.role === 'leitor') {
+      html += link('catalogo.html', 'Catálogo', page === 'catalogo') +
+        link('meus-livros.html', 'Meus livros', page === 'meus-livros') +
+        link('historico.html', 'Histórico', page === 'historico') +
+        link('perfil.html', 'Meu perfil', page === 'perfil') +
+        link('editar-perfil.html', 'Editar perfil', page === 'editar-perfil') +
+        link('configuracoes.html', 'Configurações', page === 'configuracoes');
+    }
+    if (user && user.role === 'admin') html += link('admin.html', 'Painel', page === 'admin') +
+      link('admin-livros.html', 'Livros', page === 'admin-livros') +
+      link('admin-usuarios.html', 'Usuários', page === 'admin-usuarios');
     html += user
       ? '<span class="nav-user">Olá, <b>' + esc(user.username) + '</b></span><button class="nav-button" id="logout-btn" type="button">Sair</button>'
       : '<a class="nav-button" href="login.html">Entrar</a>';

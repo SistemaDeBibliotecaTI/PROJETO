@@ -1,4 +1,4 @@
-# BiblioTech
+# Biblioteca Dev 4.0
 
 Sistema acadêmico de biblioteca de TI, com interface da versão colorida v3.1 preservada e camada de persistência local em SQLite.
 
@@ -42,3 +42,4 @@ Esta é uma versão acadêmica para execução local e demonstração em sala. A
 - Se `npm install` falhar, confira `node -v` e `npm -v`; use Node.js 22 LTS e tente novamente.
 - Se a porta 3000 estiver ocupada, feche o outro processo ou inicie com `set PORT=3001` no Prompt de Comando (Windows), depois abra `http://localhost:3001`.
 - O banco é criado somente quando o servidor é iniciado. Não use Live Server.
+\n\n## Atualização — versão ampliada\n\nForam adicionadas telas independentes para recuperação de senha, catálogo, detalhes, meus livros, histórico, edição de perfil, configurações e gestão administrativa. O leitor foi atualizado para renderizar páginas do PDF em duas folhas, com navegação, contador, progresso e tela cheia (PDF.js via CDN; requer internet para carregar a biblioteca).\n\nPara executar: instale Node.js 20 ou superior, abra esta pasta no terminal, execute `npm install` e depois `npm start`. Acesse `http://localhost:3000`.\n

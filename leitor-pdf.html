@@ -1,23 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biblioteca Dev | Leitor PDF</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body data-page="pdf-reader">
-  <header class="topbar">
-    <a class="brand" href="index.html"><span class="brand-icon">▤</span><span><b>Biblioteca Dev</b><small>Livros que constroem seu futuro</small></span></a>
-    <nav id="main-nav"></nav>
-  </header>
-  <main class="pdf-reader-main">
-    <div class="pdf-reader-head"><div><span class="eyebrow">ÁREA DE LEITURA</span><h1 id="pdf-title">Carregando livro...</h1></div><a class="button button-outline" href="perfil.html">Voltar para meus livros</a></div>
-    <p id="pdf-message" class="form-error" role="alert"></p>
-    <iframe id="pdf-viewer" class="pdf-viewer" title="Leitor de PDF"></iframe>
-  </main>
-  <footer>Biblioteca Dev · Leitura disponível durante o período do empréstimo</footer>
-  <script src="db.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biblioteca Dev | Leitor digital</title><link rel="stylesheet" href="style.css">
+<style>
+.reader-shell{max-width:1100px;margin:24px auto;padding:18px;background:#172638;border-radius:22px;color:#fff;box-shadow:0 18px 45px #10243a30}
+.reader-toolbar,.reader-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.book-stage{display:flex;justify-content:center;align-items:center;gap:0;padding:22px 8px;background:linear-gradient(120deg,#d7c9ad,#f2e8d5);border-radius:14px;margin:18px 0;min-height:420px}
+.book-page{background:#fffdf7;box-shadow:0 8px 22px #44351e35;width:min(43%,430px);min-height:360px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.book-page:first-child{border-right:1px solid #e4dccd;border-radius:8px 0 0 8px}.book-page:last-child{border-radius:0 8px 8px 0}
+.book-page canvas{width:100%;height:auto;display:block}.reader-controls button{border:0;border-radius:12px;padding:12px 18px;background:#4e8ed8;color:white;font-weight:700;cursor:pointer}
+.reader-controls button:disabled{opacity:.4;cursor:not-allowed}.reader-progress{height:7px;background:#40536a;border-radius:10px;overflow:hidden;margin-top:12px}.reader-progress span{display:block;height:100%;background:#72b5ff;width:0;transition:width .2s}
+@keyframes pageTurn{0%{transform:perspective(900px) rotateY(0);opacity:1}45%{transform:perspective(900px) rotateY(-16deg);opacity:.75}100%{transform:perspective(900px) rotateY(0);opacity:1}}\n.book-stage.turning .book-page:last-child{animation:pageTurn .38s ease}\n@media(max-width:650px){.book-page{width:50%;min-height:240px}.book-stage{min-height:270px;padding:10px 2px}.book-page canvas{width:100%}}
+</style></head><body data-page="pdf-reader">
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-icon">▤</span><span><b>Biblioteca Dev</b><small>Livros que constroem seu futuro</small></span></a><nav id="main-nav"></nav></header>
+<main class="pdf-reader-main"><div class="pdf-reader-head"><div><span class="eyebrow">LEITURA DIGITAL</span><h1 id="pdf-title">Livro</h1></div><a class="button button-outline" href="perfil.html">Voltar para meus livros</a></div>
+<p id="pdf-message" class="form-error" role="alert"></p>
+<section class="reader-shell"><div class="reader-toolbar"><strong>📖 Biblioteca Dev — modo livro</strong><button id="fullscreen" class="button button-outline" type="button">Tela cheia</button></div>
+<div class="book-stage" id="book-stage"><div class="book-page"><canvas id="page-left"></canvas></div><div class="book-page"><canvas id="page-right"></canvas></div></div>
+<div class="reader-controls"><button id="previous" type="button">‹ Página anterior</button><span id="page-count">Carregando páginas...</span><button id="next" type="button">Próxima página ›</button></div><div class="reader-progress"><span id="progress"></span></div></section></main>
+<footer>Biblioteca Dev · Leitura disponível durante o período do empréstimo</footer>
+<script src="db.js"></script><script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+(async function(){
+ const q=new URLSearchParams(location.search), bookId=q.get('bookId');
+ const msg=document.getElementById('pdf-message'), title=document.getElementById('pdf-title');
+ const session=(()=>{try{return JSON.parse(localStorage.getItem('bd_session')||'null')}catch(e){return null}})();
+ const uid=session&&(session.userId||session.id||session.user&&session.user.id);
+ if(!bookId||!uid){msg.textContent='Não foi possível identificar o livro ou sua sessão. Entre novamente e abra um empréstimo ativo.';return;}
+ if(!window.pdfjsLib){msg.textContent='Não foi possível carregar o leitor PDF. Verifique sua conexão com a internet.';return;}
+ pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+ let pdf,current=1; const left=document.getElementById('page-left'),right=document.getElementById('page-right');
+ async function renderPage(n,canvas){const ctx=canvas.getContext('2d');if(n>pdf.numPages){canvas.width=1;canvas.height=1;return;}const page=await pdf.getPage(n);const viewport=page.getViewport({scale:1.35});canvas.width=viewport.width;canvas.height=viewport.height;await page.render({canvasContext:ctx,viewport}).promise;}
+ async function paint(){const stage=document.getElementById('book-stage');stage.classList.remove('turning');void stage.offsetWidth;stage.classList.add('turning');await renderPage(current,left);await renderPage(current+1,right);document.getElementById('page-count').textContent=current+'–'+Math.min(current+1,pdf.numPages)+' de '+pdf.numPages+' páginas';document.getElementById('progress').style.width=(Math.min(current+1,pdf.numPages)/pdf.numPages*100)+'%';document.getElementById('previous').disabled=current<=1;document.getElementById('next').disabled=current+1>=pdf.numPages;}
+ try{const res=await fetch('/api/files/'+encodeURIComponent(bookId)+'?userId='+encodeURIComponent(uid));if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error||'PDF indisponível para este empréstimo.');}const data=await res.arrayBuffer();pdf=await pdfjsLib.getDocument({data}).promise;title.textContent=q.get('title')||'Leitor de PDF';await paint();}
+ catch(e){msg.textContent=e.message;}
+ document.getElementById('next').onclick=async()=>{if(current+1<pdf.numPages){current+=2;await paint();}};
+ document.getElementById('previous').onclick=async()=>{if(current>1){current=Math.max(1,current-2);await paint();}};
+ document.getElementById('fullscreen').onclick=()=>{const el=document.querySelector('.reader-shell');if(!document.fullscreenElement)el.requestFullscreen?.();else document.exitFullscreen?.();};
+})();
+</script></body></html>
